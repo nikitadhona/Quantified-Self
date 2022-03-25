@@ -1,2 +1,2 @@
-# Quantified-Self-
+# Quantified-Self
 Track and Measure Yourself
