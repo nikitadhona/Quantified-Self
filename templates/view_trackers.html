@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if logs|length != 0 %}
+{% if tracker.input_type == "Multiple Choice" or tracker.input_type == "Numerical"%}
+<div class="graph">
+<img src="{{url_for('static', filename = 'images/'+tracker_id+'.png')}}">
+</div>
+{% endif %}
+
+
+<div class="centered_block">
+    <div class="container card login-card">
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Values</th>
+                        <th scope="col">Details</th>
+                        <th scope="col">Operations</th>
+                    </tr>
+                </thead>
+                {% for log in logs %}
+                <tr>
+                    <td>
+                        <div class="text">{{log.date}}</div>
+                    </td>
+                    <td>
+                        <div class="text">{{log.value}}</div>
+                    </td>
+                    <td>
+                        <div class="text">{{log.details}}</div>
+                    </td>
+                    <td>
+                        <div class="text"><a href="/tracker/{{tracker_id}}/logs/{{log.id}}">Edit</a></div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            <a href="/trackers/{{tracker_id}}/records/add">
+                <div id="box" class="test">ADD</div>
+            </a>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="text">There is no data available yet</div>
+<a href="/trackers/{{tracker_id}}/records/add">
+    <div class="test">ADD A NEW LOG!</div>
+</a>
+{% endif %}
+
+{% endblock %}

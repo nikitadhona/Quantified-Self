@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br><br>
+<div id="form" class="centered_block container card login-card ">
+    <div class="login-card container my-5">
+
+        <form method ='POST'>
+            <div class="form-group ">
+             <input type="text" name="name" id="name" class="form-control" placeholder="Tracker Name">
+            </div>
+            <div class="form-group mb-4">
+                <select class="form-select-lg form-control" aria-label="Default select example">
+                    <option selected>Select Input Type</option>
+                    <option value="Numerical">Numerical</option>
+                    <option value="Multiple Choice">Multiple Choice</option>
+                    <option value="Timestamp">TimeStamp</option>
+                  </select>
+            </div>
+            <div class="form-group mb-4">
+                <input type="text" name="settings" id="settings" class="form-control" placeholder="Settings (Only for MCQ Type)">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+</div>
+{% endblock %}

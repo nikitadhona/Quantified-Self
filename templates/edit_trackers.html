@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="form">
+    <br><br>
+    <div class="centered_block ">
+        <div class="container card login-card">
+            <div class="container">
+                <form method="POST">
+                    <br>
+                    <div class="text">New Name</div><input type="text" value="{{tracker.name}}" name="name">
+                    <div class="text">New Type</div>
+                    <select name="type">
+                        <option value="Numerical">Numerical</option>
+                        <option value="Multiple Choice">Multiple Choice</option>
+                        <option value="Timestamp">Timestamp</option>
+                    </select>
+                    <div class="text">Settings</div><input type="text" value="{{tracker.settings}}"
+                        placeholder="Only for MCQs" name="settings"><br><br>
+                    <input type="submit" value="Update">
+                </form>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

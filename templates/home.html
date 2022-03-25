@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+<div class="heading_main ">Hello, {{session.get('username')}}</div>
+</div>
+<div class="centered_block ">
+    <div class="container card login-card">
+        <div class="container">
+            <br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Last Tracked</th>
+                    <th scope="col">New Event</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            {% for tracker in trackers %}
+            <tr>
+                <td>
+                    <div class="text"><a href="/trackers/{{tracker.id}}/view">{{tracker.name}}</a></div>
+                </td>
+                <td>
+                    <div class="text">yesterday</div>
+                </td>
+                <td>
+                    <div class="text"><a href="/trackers/{{tracker.id}}/records/add">+</a></div>
+                </td>
+
+                <td>
+                    <div class="text"><a href="/trackers/{{tracker.id}}/edit">Edit</a></div>
+                    <div class="text"><a href="/trackers/{{tracker.id}}/delete">Delete</a></div>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        </div>
+    
+    <br><br>
+    <div class="container">
+        <button style="margin-left: 50%;" type="button" class="btn btn-outline-danger btn-lg">
+
+            <a href="/trackers/add"><div id="box" class="test">ADD</div></a>
+        </button>
+    </div>
+    <br><br>
+</div>
+</div>
+
+{% endblock %}
